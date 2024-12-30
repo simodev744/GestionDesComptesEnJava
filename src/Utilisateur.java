@@ -1,15 +1,21 @@
 public class Utilisateur extends Personne {
+    private static int compteurId = 1;
+    private int id;
     private String email;
     private String motDePasse;
     private Role role;
 
     public Utilisateur(String nom, int age, String email, String motDePasse, Role role) {
         super(nom, age);
+        this.id = compteurId++;
         this.email = email;
         this.motDePasse = motDePasse;
         this.role = role;
     }
 
+    public int getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;
@@ -37,7 +43,6 @@ public class Utilisateur extends Personne {
 
     @Override
     public String toString() {
-        return "Nom: " + getNom() + ", Âge: " + getAge() + ", Email: " + email + ", Rôle: " + role.getNomRole();
+        return "ID: " + id + ", Nom: " + getNom() + ", Âge: " + getAge() + ", Email: " + email + ", Rôle: " + role.getNomRole();
     }
-
 }
